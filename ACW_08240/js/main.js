@@ -52,17 +52,17 @@ function onLoad() {
         ///////////////////////////////////////////////////////
 
         //DEEP CLICK
-        if ((x > 390 && x < 410) && (y > 460 && y < 480)) {
+        if ((x > 400 && x < 600) && (y > 400 && y < 600)) {
             map.setZoomBool(true, 'deep');
         }
 
         //KCOM CLICK
-        if ((x > 275 && x < 305) && (y > 425 && y < 445)) {
+        if ((x > 200 && x < 400) && (y > 300 && y < 500)) {
             map.setZoomBool(true, 'kcom');
         }
 
         //HULL LIBARY CLICK
-        if ((x > 280 && x < 310) && (y > 260 && y < 280)) {
+        if ((x > 200 && x < 400) && (y > 200 && y < 400)) {
             map.setZoomBool(true, 'uni');
         }
 
@@ -201,18 +201,38 @@ function onLoad() {
     } //MAIN PROGRAMME LOOP
 
     function main() {
-        //INIT
-        mainInit();
-        backbuttonInit();
 
-        //MAKING SCENE GRAPHS
-        createMenuSceneGraph();
-        createDeepSceneGraph();
-        createKcomSceneGraph();
-        createUniSceneGraph();
+        //Checks for supported browsers
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;  // Opera 8.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox 1.0+
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || safari.pushNotification);         // Safari 3.0+ "[object HTMLElementConstructor]" 
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;   // Internet Explorer 6-11
+        var isEdge = !isIE && !!window.StyleMedia;         // Edge 20+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;         // Chrome 1+
+        var isBlink = (isChrome || isOpera) && !!window.CSS;
+      
 
-        previousTime = Date.now;
-        mainLoop();
+        //Only supported on chrome
+        if (isChrome)
+        {
+            //INIT
+            mainInit();
+            backbuttonInit();
+
+            //MAKING SCENE GRAPHS
+            createMenuSceneGraph();
+            createDeepSceneGraph();
+            createKcomSceneGraph();
+            createUniSceneGraph();
+
+            previousTime = Date.now;
+            mainLoop();
+        }
+        else
+        {
+            mainContext.font = 'bold 15pt Calibri';
+            mainContext.fillText('Sorry, this web application is only supported on Google Chrome', 200, 200);
+        }
     }
 
     function initialiseCanvasContext() {

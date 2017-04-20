@@ -14,10 +14,7 @@ var Map = (function () {
         //DEFAULT CHECK FOR POSITION
         if (pPosition === undefined) {
             this.setPosition(new Vector(0, 0));
-
-        } else {
-            this.setPosition(pSize);
-        }
+        } 
 
         this.zoomDEEP = false;
         this.zoomKCOM = false;
@@ -95,13 +92,12 @@ var Map = (function () {
         x = this.position.getX();
         y = this.position.getY();
 
-
         //======================IMAGE LOADING=======================
         image = new Image();
         image.src = 'content/Hull_Outline_Vector.svg';
         image.onload = function () {
             pContext.drawImage(image, x,
-                y, size, size);
+               y, size, size);
         };
         //==========================================================
 
