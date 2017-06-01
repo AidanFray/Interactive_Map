@@ -7,3 +7,9 @@ The map is traversed by clicking on any of the crircled locations:
 # Demonstration
 Below is a link of the Web Application in action
 http://imgur.com/a/tIT4K
+
+# Usage
+- Download and unzip
+- Interactive_Map-master -> ACW_08240
+- Look for index.html 
+- Run index.html on Google Chrome (Only supported browser
