@@ -1,14 +1,16 @@
 # Interactive_Map
-A University project that is an interactive map of Hull using HTML5 Canvas and Javascript.
+A Javascript interactive map of Hull to celebrate the City of Culture.
 
-The map is traversed by clicking on any of the crircled locations:
-![alt tag](https://s18.postimg.org/9d6gn21y1/asda.png)
+The map is traversed by clicking on any of the crircled locations. 
 
-# Demonstration
-Below is a link of the Web Application in action
-http://imgur.com/a/tIT4K
+<p align="center">
+  <img src=https://image.ibb.co/ktSeHH/Map.png/>
+</p>
 
-# Usage
+# Play Online
+![Map can be played here](https://aidanfray.github.io/Interactive_Map/)
+
+# Play Locally 
 - Download and unzip
 - Interactive_Map-master -> ACW_08240
 - Look for index.html 
