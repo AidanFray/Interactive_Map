@@ -57,6 +57,7 @@ var Map = (function () {
         pContext.moveTo(27, 175);
         pContext.arc(7, 175, 20, 0, 2 * Math.PI, true);
         pContext.stroke();
+
         //KCOM
         pContext.beginPath();
         pContext.lineWidth = linewidth;
@@ -94,10 +95,19 @@ var Map = (function () {
 
         //======================IMAGE LOADING=======================
         image = new Image();
-        image.src = 'content/Hull_Outline_Vector.svg';
+
+        // Note: Bug in Firefox when drawing a .svg file
+        // the aspect ratio is always retained, this means
+        // the dynamic size is off. So for the time being 
+        // the image has been converted to a png
+        
+        // image.src = 'content/Hull_Outline_Vector.svg';
+        image.src = 'content/Hull_Outline_Vector.png';
+
         image.onload = function () {
-            pContext.drawImage(image, x,
-               y, size, size);
+
+            
+            pContext.drawImage(image, x, y, size, size);
         };
         //==========================================================
 
@@ -193,5 +203,8 @@ var Map = (function () {
         this.zoomKCOM = false;
         this.zoomUNI = false;
     };
+
+    
     return Map;
+    
 }());
